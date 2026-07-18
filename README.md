@@ -1,21 +1,29 @@
-# Ming AI Food — Day 1
+# Ming AI Food — Day 2
 
-Project 002 for Ming AI Automations.
+Day 2 adds the first full interactive search experience.
 
-## Includes
-- Apple-inspired responsive landing page
-- Interactive AI search bar and suggestions
-- Quick-pick prompts
-- Trending food discovery cards
-- Scroll navigation
-- Light/dark theme toggle with localStorage
-- Reveal-on-scroll animations
-- Responsive mobile layout
-- GitHub Pages-friendly structure
+## Included
+- Search page
+- Natural-language search input
+- Prompt cards
+- AI-style processing animation
+- Four-step discovery process
+- Mock restaurant recommendation results
+- Ming Score
+- Save button interaction
+- Responsive layout
+- Dark mode carried over from Day 1
 
-## Deploy
-Upload the contents of this folder to a GitHub repository, then use:
-Settings → Pages → Deploy from branch → main → / (root)
+## GitHub
+Replace/add the files in your existing repository:
+- Add `search.html`
+- Add `assets/css/search.css`
+- Replace `assets/js/app.js`
+- Add `assets/js/search.js`
 
-## Next
-Day 2: interactive search experience, AI loading state, and restaurant results.
+Your Day 1 `index.html` and `assets/css/style.css` remain part of the project.
+
+## Demo flow
+Home → Search → Enter a craving → AI processing → Results
+
+Day 3 will add the restaurant detail experience.

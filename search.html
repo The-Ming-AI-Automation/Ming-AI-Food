@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ming AI Food — Search</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/search.css">
+</head>
+<body>
+<div class="site-shell">
+<header class="topbar">
+<a class="brand" href="index.html"><span class="brand-mark">M</span><span class="brand-text">Ming AI Food</span></a>
+<nav class="desktop-nav"><a href="index.html">Discover</a><a href="search.html" class="active">Search</a><a href="#results">Results</a></nav>
+<div class="topbar-actions"><button class="icon-button" id="themeToggle">☼</button><a class="nav-cta" href="index.html">Home ↗</a></div>
+</header>
+
+<main class="search-page">
+<section class="search-hero">
+<div class="eyebrow"><span class="pulse-dot"></span> Ming AI discovery engine</div>
+<h1>Tell us what<br><em>you're craving.</em></h1>
+<p>Search naturally. Ming turns a simple craving into a shortlist of places worth considering.</p>
+
+<div class="big-search-card" id="searchCard">
+<div class="search-icon">⌕</div>
+<input id="searchInput" autofocus placeholder="Try “best ramen for a rainy night”">
+<button id="searchButton">Search <span>→</span></button>
+</div>
+
+<div class="prompt-grid">
+<button data-query="Best ramen under RM30"><span>🍜</span><div><strong>Budget ramen</strong><small>Best ramen under RM30</small></div></button>
+<button data-query="Quiet cafe for work"><span>☕</span><div><strong>Work cafe</strong><small>A quiet cafe for work</small></div></button>
+<button data-query="Date night restaurant"><span>♡</span><div><strong>Date night</strong><small>Somewhere special tonight</small></div></button>
+<button data-query="Hidden food gems nearby"><span>✦</span><div><strong>Hidden gems</strong><small>Places people are discovering</small></div></button>
+</div>
+</section>
+
+<section class="ai-processing" id="processingState">
+<div class="processing-orb"><span></span><span></span><span></span></div>
+<h2>Ming is looking around...</h2>
+<p id="processingText">Understanding your craving</p>
+<div class="processing-steps">
+<div class="processing-step" data-step="0"><span>○</span> Understanding your craving</div>
+<div class="processing-step" data-step="1"><span>○</span> Checking local places</div>
+<div class="processing-step" data-step="2"><span>○</span> Looking for food signals</div>
+<div class="processing-step" data-step="3"><span>○</span> Building your shortlist</div>
+</div>
+</section>
+
+<section class="results-section" id="results">
+<div class="results-heading">
+<div><span class="section-kicker">Ming's shortlist</span><h2>Worth a look.</h2><p id="resultsSubtitle">A few places selected for your craving.</p></div>
+<button class="filter-button" id="resetSearch">↺ New search</button>
+</div>
+<div class="results-grid" id="resultsGrid"></div>
+</section>
+</main>
+<div class="toast" id="toast"></div>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/search.js"></script>
+</body>
+</html>

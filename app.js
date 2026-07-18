@@ -1,1 +1,25 @@
-const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];const input=$('#heroSearchInput'),card=$('#heroSearchCard'),suggestions=$('#suggestions'),toast=$('#toast');function showToast(m){toast.textContent=m;toast.classList.add('show');clearTimeout(window.__toastTimer);window.__toastTimer=setTimeout(()=>toast.classList.remove('show'),2600)}function setSearch(q){input.value=q;suggestions.classList.remove('active');input.focus()}function startDemoSearch(q){const query=q||input.value.trim();if(!query){showToast('Try telling Ming what you are craving first ✦');input.focus();return}showToast(`Ming AI is preparing recommendations for “${query}” ✦`);card.classList.add('searching');setTimeout(()=>{card.classList.remove('searching');showToast('Search experience coming in Day 2 →')},1500)}input.addEventListener('focus',()=>suggestions.classList.add('active'));input.addEventListener('input',()=>suggestions.classList.toggle('active',input.value.length>0));input.addEventListener('keydown',e=>{if(e.key==='Enter')startDemoSearch()});$('#heroSearchButton').addEventListener('click',()=>startDemoSearch());$('#tryDemoButton').addEventListener('click',()=>{document.querySelector('#discover').scrollIntoView({behavior:'smooth'});setTimeout(()=>input.focus(),600)});$('#bottomCta').addEventListener('click',()=>{document.querySelector('#discover').scrollIntoView({behavior:'smooth'});setTimeout(()=>input.focus(),600)});$('#viewTrendingButton').addEventListener('click',()=>document.querySelector('#trending').scrollIntoView({behavior:'smooth'}));$$('[data-query]').forEach(b=>b.addEventListener('click',()=>{setSearch(b.dataset.query);if(b.closest('.trend-card')){document.querySelector('#discover').scrollIntoView({behavior:'smooth'});setTimeout(()=>startDemoSearch(b.dataset.query),650)}}));document.addEventListener('click',e=>{if(!card.contains(e.target))suggestions.classList.remove('active')});$('#themeToggle').addEventListener('click',()=>{document.body.classList.toggle('dark');const d=document.body.classList.contains('dark');$('#themeToggle').textContent=d?'☾':'☼';localStorage.setItem('ming-theme',d?'dark':'light')});if(localStorage.getItem('ming-theme')==='dark'){document.body.classList.add('dark');$('#themeToggle').textContent='☾'}const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}}),{threshold:.12});$$('.reveal').forEach(e=>observer.observe(e));
+const $ = (selector, root = document) => root.querySelector(selector);
+const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
+
+const toast = $('#toast');
+function showToast(message) {
+  if (!toast) return;
+  toast.textContent = message;
+  toast.classList.add('show');
+  clearTimeout(window.__toastTimer);
+  window.__toastTimer = setTimeout(() => toast.classList.remove('show'), 2600);
+}
+
+const themeToggle = $('#themeToggle');
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    const isDark = document.body.classList.contains('dark');
+    themeToggle.textContent = isDark ? '☾' : '☼';
+    localStorage.setItem('ming-theme', isDark ? 'dark' : 'light');
+  });
+  if (localStorage.getItem('ming-theme') === 'dark') {
+    document.body.classList.add('dark');
+    themeToggle.textContent = '☾';
+  }
+}
