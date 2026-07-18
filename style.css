@@ -104,3 +104,80 @@
   }
 
 }
+/* =========================================
+   MING AI FOOD — IMAGE FIX
+   ========================================= */
+
+/* Featured hero image */
+.featured-dish .dish-image {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  min-height: 300px;
+}
+
+.featured-dish .dish-image img {
+  display: block !important;
+  width: 100% !important;
+  height: 300px !important;
+  object-fit: cover !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+
+/* Trending card images */
+.trend-visual {
+  position: relative;
+  overflow: hidden;
+  min-height: 220px;
+}
+
+.trend-visual img {
+  display: block !important;
+  width: 100% !important;
+  height: 220px !important;
+  object-fit: cover !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+
+/* Image hover effect */
+.trend-card:hover .trend-visual img {
+  transform: scale(1.05);
+}
+
+.trend-visual img,
+.dish-image img {
+  transition: transform 0.5s ease;
+}
+
+
+/* Keep badges above images */
+.dish-badge {
+  position: absolute;
+  z-index: 5;
+}
+
+
+/* Mobile */
+@media (max-width: 700px) {
+
+  .featured-dish .dish-image {
+    min-height: 240px;
+  }
+
+  .featured-dish .dish-image img {
+    height: 240px !important;
+  }
+
+  .trend-visual {
+    min-height: 200px;
+  }
+
+  .trend-visual img {
+    height: 200px !important;
+  }
+
+}
